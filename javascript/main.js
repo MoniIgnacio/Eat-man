@@ -31,4 +31,10 @@ const startGame = ()=>{
  
 
 // ADD EVENT LISTENERS
-startBtn.addEventListener('click', startGame)
+startBtn.addEventListener('click', startGame);
+window.addEventListener('keydown',(event)=>{
+    if (event.code === 'ArrowRight'){
+        gameObj.playerObj.x = gameObj.playerObj.x +20
+        console.log('moviendo derecha')
+    }
+})

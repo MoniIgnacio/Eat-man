@@ -7,12 +7,14 @@ class Player{
         this.y = 500;
         this.w = 50;
         this.h = 50;
-
-
     }
 
     // Metodos
+
     drawPlayer = ()=>{
         ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+    }
+    movimientoPlayer = ()=>{
+        
     }
 }

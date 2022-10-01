@@ -9,16 +9,17 @@ Eat-Man es un juego donde el jugador se puede mover en x e y, a su vez disparar 
 
 ## MVP (DOM - CANVAS)
 
-colicion de pelota con jugador gameOver 
-html
-gameloop
-jugador movimiento
-bola
-colicion de bola con jugador 
-disparo jugador 
-colicion de bola con disparo
-disparo random de bola 
-colicion de disparo conjugador
+Pasos a seguir 
+2./ html 
+3./ gameloop
+4. jugador movimiento
+5. bola
+6. colicion de bola con jugador 
+7. disparo jugador 
+8. colicion de bola con disparo
+9. disparo random de bola 
+10. colicion de disparo conjugador
+11. colicion de pelota con jugador gameOver 
 
 
 - El juego termina cuando:

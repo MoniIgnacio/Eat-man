@@ -18,6 +18,7 @@ class Game {
         ctx.clearRect (0, 0, canvas.width, canvas.height);
 
         // 2. Acciones y movimientos.
+        this.playerObj.movimientoPlayer();
 
         // 3. Dibujo de elementos.
         this.drawFondo();
