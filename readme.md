@@ -12,8 +12,8 @@ Eat-Man es un juego donde el jugador se puede mover en x e y, a su vez disparar 
 Pasos a seguir 
 2./ html 
 3./ gameloop
-4. jugador movimiento
-5. bola
+4./ jugador movimiento
+5./ bola
 6. colicion de bola con jugador 
 7. disparo jugador 
 8. colicion de bola con disparo
