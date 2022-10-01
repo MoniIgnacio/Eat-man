@@ -7,6 +7,7 @@ class Player{
         this.y = 500;
         this.w = 50;
         this.h = 50;
+        this.speed = 30;
     }
 
     // Metodos

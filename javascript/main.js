@@ -33,8 +33,26 @@ const startGame = ()=>{
 // ADD EVENT LISTENERS
 startBtn.addEventListener('click', startGame);
 window.addEventListener('keydown',(event)=>{
-    if (event.code === 'ArrowRight'){
-        gameObj.playerObj.x = gameObj.playerObj.x +20
+    if (event.code === 'ArrowRight' && gameObj.playerObj.x < canvas.width - 80){
+        gameObj.playerObj.x = gameObj.playerObj.x + gameObj.playerObj.speed
         console.log('moviendo derecha')
+    }
+})
+window.addEventListener('keydown',(event)=>{
+    if (event.code === 'ArrowLeft' && gameObj.playerObj.x > 20){
+        gameObj.playerObj.x = gameObj.playerObj.x - gameObj.playerObj.speed
+        console.log('moviendo izquierda')
+    }
+})
+window.addEventListener('keydown',(event)=>{
+    if (event.code === 'ArrowUp' && gameObj.playerObj.y > 20){
+        gameObj.playerObj.y = gameObj.playerObj.y - gameObj.playerObj.speed
+        console.log('moviendo up')
+    }
+})
+window.addEventListener('keydown',(event)=>{
+    if (event.code === 'ArrowDown' && gameObj.playerObj.y < canvas.height - 70){
+        gameObj.playerObj.y = gameObj.playerObj.y + gameObj.playerObj.speed
+        console.log('moviendo down')
     }
 })
