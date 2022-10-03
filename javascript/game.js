@@ -42,7 +42,7 @@ class Game {
         this.bolaObj.y < eachShot.y + 90 // ?
       ) {
         console.log('colision')
-        // this.gameOver();
+        this.gameOver();
         }
     })
       

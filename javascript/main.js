@@ -2,8 +2,9 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 const startBtn = document.querySelector("#start-btn");
+const playAgainBtn = document.querySelector("#play-again-btn");
 const startScreen = document.querySelector("#start-screen");
-const playAgainScreen = document.querySelector("play-again-screen");
+const playAgainScreen = document.querySelector("#play-again-screen");
 
 let gameObj;
 
@@ -22,9 +23,16 @@ const startGame = () => {
   // Iniciar el juego
   gameObj.gameLoop();
 };
+const playAgain = () => {
+  // Ocultar el inicio
+  playAgainScreen.style.display = "none";
+  // Mostrar canvas
+  startScreen.style.display = "block";
+};
 
 // ADD EVENT LISTENERS
 startBtn.addEventListener("click", startGame);
+playAgainBtn.addEventListener("click", playAgain);
 window.addEventListener("keydown", (event) => {
   if (event.code === "ArrowRight" && gameObj.playerObj.x < canvas.width - 80) {
     gameObj.playerObj.x = gameObj.playerObj.x + gameObj.playerObj.speed;

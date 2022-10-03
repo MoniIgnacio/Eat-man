@@ -16,7 +16,7 @@ Pasos a seguir
 5./ bola
 6./ colicion de bola con jugador 
 7./ disparo jugador 
-8. colicion de bola con disparo
+8./ colicion de bola con disparo
 9. disparo random de bola 
 10. colicion de disparo conjugador
 11. colicion de pelota con jugador gameOver 

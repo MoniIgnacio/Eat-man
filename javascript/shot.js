@@ -4,7 +4,7 @@ class Shot {
     this.img.src = "./images/explosion.png";
     this.x = xParam;
     this.y = yParam-20;
-    this.w = 200;
+    this.w = 100;
     this.h = 100;
     this.speed = 10;
     this.isShooting = false; 
