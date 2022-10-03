@@ -14,8 +14,8 @@ Pasos a seguir
 3./ gameloop
 4./ jugador movimiento
 5./ bola
-6. colicion de bola con jugador 
-7. disparo jugador 
+6./ colicion de bola con jugador 
+7./ disparo jugador 
 8. colicion de bola con disparo
 9. disparo random de bola 
 10. colicion de disparo conjugador

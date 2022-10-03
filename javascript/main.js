@@ -3,7 +3,7 @@ const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 const startBtn = document.querySelector("#start-btn");
 const startScreen = document.querySelector("#start-screen");
-const playAgainScreen = document.querySelector('play-again-screen')
+const playAgainScreen = document.querySelector("play-again-screen");
 
 let gameObj;
 
@@ -29,23 +29,24 @@ window.addEventListener("keydown", (event) => {
   if (event.code === "ArrowRight" && gameObj.playerObj.x < canvas.width - 80) {
     gameObj.playerObj.x = gameObj.playerObj.x + gameObj.playerObj.speed;
     // console.log('moviendo derecha')
-  }
-});
-window.addEventListener("keydown", (event) => {
-  if (event.code === "ArrowLeft" && gameObj.playerObj.x > 20) {
+  }else if (event.code === "ArrowLeft" && gameObj.playerObj.x > 20) {
     gameObj.playerObj.x = gameObj.playerObj.x - gameObj.playerObj.speed;
     // console.log('moviendo izquierda')
-  }
-});
-window.addEventListener("keydown", (event) => {
-  if (event.code === "ArrowUp" && gameObj.playerObj.y > 20) {
+  }else if (event.code === "ArrowUp" && gameObj.playerObj.y > 20) {
     gameObj.playerObj.y = gameObj.playerObj.y - gameObj.playerObj.speed;
     // console.log('moviendo up')
+  }else if (event.code === "ArrowDown" && gameObj.playerObj.y < canvas.height - 70) {
+    gameObj.playerObj.y = gameObj.playerObj.y + gameObj.playerObj.speed;
+    // console.log('moviendo down')
   }
 });
 window.addEventListener("keydown", (event) => {
-  if (event.code === "ArrowDown" && gameObj.playerObj.y < canvas.height - 70) {
-    gameObj.playerObj.y = gameObj.playerObj.y + gameObj.playerObj.speed;
-    // console.log('moviendo down')
+  if (event.code === "Space") {
+    gameObj.shotObj.isShooting = true;
+  }
+});
+window.addEventListener("keyup", (event) => {
+  if (event.code === "Space") {
+    gameObj.shotObj.isShooting = false;
   }
 });
