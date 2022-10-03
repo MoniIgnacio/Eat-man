@@ -14,7 +14,7 @@ class Game {
   drawFondo = () => {
     ctx.drawImage(this.fondo, 0, 0, canvas.width, canvas.height);
   };
-  colicionPlayerBola = () => {
+  colisionPlayerBola = () => {
     if (
       this.bolaObj.y > this.playerObj.y - this.bolaObj.r &&
       this.bolaObj.x > this.playerObj.x - this.bolaObj.r &&
@@ -28,10 +28,25 @@ class Game {
   disparoFlama = () => {
     if (gameObj.shotObj.isShooting === true) { 
       let nuevoShot = new Shot (gameObj.playerObj.x, gameObj.playerObj.y)
-      this.shotArr.push(nuevoShot);
-      nuevoShot.drawShot();
+      this.shotArr.push(nuevoShot);        
+        nuevoShot.drawShot();
     }
   };
+  colisionFlamaBola = () => {
+    this.shotArr.forEach((eachShot) => {
+      // console.log(eachShot.y);
+      if (
+        this.bolaObj.y > eachShot.y &&
+        this.bolaObj.x > eachShot.x - this.bolaObj.r &&
+        this.bolaObj.x < eachShot.x + 90 && //?
+        this.bolaObj.y < eachShot.y + 90 // ?
+      ) {
+        console.log('colision')
+        // this.gameOver();
+        }
+    })
+      
+    };
   //   addBola = () =>{
   //     if (this.frames % 120 === 0){
   //         // let randomNum = Math.floor(Math.random() * 500)
@@ -46,15 +61,17 @@ class Game {
     playAgainScreen.style.display = "flex";
   };
   gameLoop = () => {
+    this.frames += 1
     // 1. Limpiar el canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // 2. Acciones y movimientos.
     this.playerObj.movimientoPlayer();
-    this.colicionPlayerBola();
+    this.colisionPlayerBola();
     this.shotArr.forEach((eachShot) => {
       eachShot.moveShot();
     })
+    this.colisionFlamaBola();
 
     // 3. Dibujo de elementos.
     this.drawFondo();
@@ -62,7 +79,7 @@ class Game {
     this.playerObj.drawPlayer();
     this.disparoFlama();
     this.shotArr.forEach((eachShot) => {
-      eachShot.drawShot();
+        eachShot.drawShot();
     })
 
 
