@@ -6,9 +6,14 @@ class Shot {
     this.y = yParam-20;
     this.w = 350;
     this.h = 100;
+    this.speed = 20;
     this.isShooting = false; 
   }
   drawShot = () => {
     ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
   };
+  moveShot = ()=> {
+    this.x = this.x + this.speed
+  }
 }
+ 

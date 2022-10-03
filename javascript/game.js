@@ -5,6 +5,7 @@ class Game {
     this.playerObj = new Player();
     this.bolaObj = new Bola();
     this.shotObj = new Shot();
+    this.shotArr = [];
     this.frames = 0;
     this.score = 0;
     this.GameOn = true;
@@ -27,8 +28,8 @@ class Game {
   disparoFlama = () => {
     if (gameObj.shotObj.isShooting === true) { 
       let nuevoShot = new Shot (gameObj.playerObj.x, gameObj.playerObj.y)
-      nuevoShot.drawShot()
-
+      this.shotArr.push(nuevoShot);
+      nuevoShot.drawShot();
     }
   };
   //   addBola = () =>{
@@ -51,12 +52,18 @@ class Game {
     // 2. Acciones y movimientos.
     this.playerObj.movimientoPlayer();
     this.colicionPlayerBola();
-    
+    this.shotArr.forEach((eachShot) => {
+      eachShot.moveShot();
+    })
+
     // 3. Dibujo de elementos.
     this.drawFondo();
     this.bolaObj.drawBola();
     this.playerObj.drawPlayer();
     this.disparoFlama();
+    this.shotArr.forEach((eachShot) => {
+      eachShot.drawShot();
+    })
 
 
     // 4. Control de recursion.
