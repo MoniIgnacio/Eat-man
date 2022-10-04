@@ -51,11 +51,7 @@ class Game {
       }
     });
     if (this.shotArrPlayer.length <= 10 && gameObj.shotObj.isShooting === true) {
-      let nuevoShot = new Shot(
-        gameObj.playerObj.x,
-        gameObj.playerObj.y,
-        "player"
-        );
+      let nuevoShot = new Shot(gameObj.playerObj.x, gameObj.playerObj.y, "player");
         this.shotArrPlayer.push(nuevoShot);
         nuevoShot.drawShot();
     }
@@ -86,9 +82,22 @@ class Game {
   }
 
   addBola = () => {
-    if (this.frames % 120 === 0) {
-      let randomNum = Math.floor(Math.random() * 550);
-      let nuevaBola = new Bola(randomNum);
+    let randomNum = Math.floor(Math.random() * 550);
+
+    if (this.frames % 120 === 0 ) {
+      let nuevaBola = new Bola(randomNum, 2, 30);
+      this.bolaArr.push(nuevaBola);
+    } 
+    if (this.score >= 1000 && this.frames % 200 === 0) {
+      let nuevaBola = new Bola(randomNum, 4, 20);
+      this.bolaArr.push(nuevaBola);
+    }
+    if (this.score >= 1500 && this.frames % 200 === 0) {
+      let nuevaBola = new Bola(randomNum, 6, 20);
+      this.bolaArr.push(nuevaBola);
+    }
+    if (this.score >= 3000) {
+      let nuevaBola = new Bola(randomNum, 4, 30);
       this.bolaArr.push(nuevaBola);
     }
   };
