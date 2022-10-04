@@ -22,13 +22,25 @@ class Game {
       if (
         eachBola.y > this.playerObj.y - eachBola.r &&
         eachBola.x > this.playerObj.x - eachBola.r &&
-        eachBola.x < this.playerObj.x + 90 && //?
-        eachBola.y < this.playerObj.y + 90 // ?
+        eachBola.x < this.playerObj.x + 90 &&
+        eachBola.y < this.playerObj.y + 90
       ) {
-        // console.log('colision')
-        // this.gameOver();
+        this.gameOver();
       }
     });
+  };
+  colisionFramaPlayer = () => {
+      this.shotArrBola.forEach((eachShot, indexShot) => {
+        if (
+          eachShot.x < this.playerObj.x + this.playerObj.w &&
+          eachShot.x > this.playerObj.x &&
+          eachShot.y < this.playerObj.y && 
+          eachShot.y > this.playerObj.y - this.playerObj.h
+        ) {
+          this.shotArrBola.splice(indexShot, 1);
+          this.score = this.score - 50;
+        }
+      });
   };
 
   disparoFlama = () => {
@@ -37,27 +49,26 @@ class Game {
         gameObj.playerObj.x,
         gameObj.playerObj.y,
         "player"
-      );
-      this.shotArrPlayer.push(nuevoShot);
-      nuevoShot.drawShot();
+        );
+        this.shotArrPlayer.push(nuevoShot);
+        nuevoShot.drawShot();
     }
   };
 
   colisionFlamaBola = () => {
     this.shotArrPlayer.forEach((eachShot, indexShot) => {
       this.bolaArr.forEach((eachBola, indexBola) => {
-        if (
-          eachBola.y > eachShot.y &&
-          eachBola.x > eachShot.x - eachBola.r &&
-          eachBola.x < eachShot.x + 90 && //?
-          eachBola.y < eachShot.y + 90 // ?
-        ) {
-          this.shotArrPlayer.splice(indexShot, 1);
-          this.bolaArr.splice(indexBola, 1);
-          this.score = this.score + 100;
-        }
+        if (eachBola.y > eachShot.y &&
+            eachBola.x > eachShot.x - eachBola.r &&
+            eachBola.x < eachShot.x + 90 &&
+            eachBola.y < eachShot.y + 90 ){
+              this.shotArrPlayer.splice(indexShot, 1);
+              this.bolaArr.splice(indexBola, 1);
+              this.score = this.score + 100;
+            }
       });
     });
+    scoreDOM.innerHTML = +this.score
   };
 
   addBola = () => {
@@ -90,7 +101,7 @@ class Game {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // 2. Acciones y movimientos.
-    this.playerObj.movimientoPlayer();
+    // this.playerObj.movimientoPlayer();
     this.shotArrPlayer.forEach((eachShot) => {
       eachShot.moveShot();
     });
@@ -107,21 +118,22 @@ class Game {
     this.disparoFlamaBola();
     this.colisionPlayerBola();
     this.colisionFlamaBola();
+    this.colisionFramaPlayer();
 
     // 3. Dibujo de elementos.
     this.drawFondo();
     this.bolaArr.forEach((eachBola) => {
       eachBola.drawBola();
     });
-    this.playerObj.drawPlayer();
-
+    
     this.shotArrPlayer.forEach((eachShot) => {
       eachShot.drawShot();
     });
-
+    
     this.shotArrBola.forEach((eachShot) => {
       eachShot.drawShot();
     });
+    this.playerObj.drawPlayer();
 
     // 4. Control de recursion.
     if (this.GameOn === true) {

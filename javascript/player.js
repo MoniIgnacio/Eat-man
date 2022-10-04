@@ -7,7 +7,7 @@ class Player {
     this.y = 500;
     this.w = 50;
     this.h = 50;
-    this.speed = 20;
+    this.speed = 30;
   }
 
   // Metodos
@@ -16,7 +16,6 @@ class Player {
     ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
   };
 
-  movimientoPlayer = () => {
-    // agregar los eventos que estan en main
-  };
+  // movimientoPlayer = () => {
+  // };
 }

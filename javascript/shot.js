@@ -11,7 +11,7 @@ class Shot {
     this.y = yParam - 20;
     this.w = 100;
     this.h = 100;
-    this.speed = 10;
+    this.speed = 5;
     this.isShooting = false;
   }
 
