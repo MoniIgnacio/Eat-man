@@ -18,14 +18,15 @@ class Game {
   };
 
   colisionPlayerBola = () => {
-    this.bolaArr.forEach((eachBola) => {
+    this.bolaArr.forEach((eachBola, indexBola) => {
       if (
         eachBola.y > this.playerObj.y - eachBola.r &&
         eachBola.x > this.playerObj.x - eachBola.r &&
         eachBola.x < this.playerObj.x + 90 &&
         eachBola.y < this.playerObj.y + 90
-      ) {
-        this.gameOver();
+      ){
+        this.bolaArr.splice(indexBola, 1);
+        this.score -= 200;
       }
     });
   };
@@ -36,15 +37,20 @@ class Game {
           eachShot.x > this.playerObj.x &&
           eachShot.y < this.playerObj.y && 
           eachShot.y > this.playerObj.y - this.playerObj.h
-        ) {
+        ){
           this.shotArrBola.splice(indexShot, 1);
-          this.score = this.score - 50;
+          this.score -= 50;
         }
       });
   };
 
   disparoFlama = () => {
-    if (gameObj.shotObj.isShooting === true) {
+    this.shotArrPlayer.forEach((eachShot, indexShot) => {
+      if (eachShot.x > canvas.width){
+        this.shotArrPlayer.splice(indexShot,1)
+      }
+    });
+    if (this.shotArrPlayer.length <= 10 && gameObj.shotObj.isShooting === true) {
       let nuevoShot = new Shot(
         gameObj.playerObj.x,
         gameObj.playerObj.y,
@@ -53,7 +59,7 @@ class Game {
         this.shotArrPlayer.push(nuevoShot);
         nuevoShot.drawShot();
     }
-  };
+  }
 
   colisionFlamaBola = () => {
     this.shotArrPlayer.forEach((eachShot, indexShot) => {
@@ -64,15 +70,24 @@ class Game {
             eachBola.y < eachShot.y + 90 ){
               this.shotArrPlayer.splice(indexShot, 1);
               this.bolaArr.splice(indexBola, 1);
-              this.score = this.score + 100;
+              this.score += 100;
             }
       });
     });
   };
 
+  colisionBolaCanvas = () => {
+    this.bolaArr.forEach ((eachBola, indexBola)=> {
+      if (eachBola.x < -60){
+        this.bolaArr.splice(indexBola, 1);
+        this.score -= 50 
+      }
+    })
+  }
+
   addBola = () => {
     if (this.frames % 120 === 0) {
-      let randomNum = Math.floor(Math.random() * 500);
+      let randomNum = Math.floor(Math.random() * 550);
       let nuevaBola = new Bola(randomNum);
       this.bolaArr.push(nuevaBola);
     }
@@ -80,7 +95,7 @@ class Game {
 
   disparoFlamaBola = () => {
     this.bolaArr.forEach((eachBola) => {
-      if (eachBola.x === 800) {
+      if (eachBola.x === 800 && this.score >= 800) {
         let nuevoShot = new Shot(eachBola.x, eachBola.y, "bola");
         this.shotArrBola.push(nuevoShot);
         nuevoShot.drawShot();
@@ -90,11 +105,13 @@ class Game {
   scoreGame = () => {
     if (this.score < 0 ){
       this.gameOver();
-    } scoreDOM.innerHTML = +this.score
+      scoreDOM.innerHTML = 0
+    } else scoreDOM.innerHTML = +this.score
   }
+  
   drawScore = () => {
     ctx.font = "30px Silkscreen";
-    ctx.fillText (`Score ${this.score}`, 100 , 50)
+    ctx.fillText (`Score ${this.score}`, 120 , 60)
     ctx.fillStyle = 'yellow'
     ctx.textAlign = 'center'
   }
@@ -129,6 +146,7 @@ class Game {
     this.colisionPlayerBola();
     this.colisionFlamaBola();
     this.colisionFramaPlayer();
+    this.colisionBolaCanvas();
     this.scoreGame();
 
     // 3. Dibujo de elementos.
