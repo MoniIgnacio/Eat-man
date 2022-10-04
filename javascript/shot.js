@@ -7,7 +7,7 @@ class Shot {
     this.w = 100;
     this.h = 100;
     this.speed = 10;
-    this.isShooting = false; 
+    this.isShooting = false;
   }
   drawShot = () => {
     ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
