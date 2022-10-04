@@ -68,7 +68,6 @@ class Game {
             }
       });
     });
-    scoreDOM.innerHTML = +this.score
   };
 
   addBola = () => {
@@ -88,6 +87,17 @@ class Game {
       }
     });
   };
+  scoreGame = () => {
+    if (this.score < 0 ){
+      this.gameOver();
+    } scoreDOM.innerHTML = +this.score
+  }
+  drawScore = () => {
+    ctx.font = "30px Silkscreen";
+    ctx.fillText (`Score ${this.score}`, 100 , 50)
+    ctx.fillStyle = 'yellow'
+    ctx.textAlign = 'center'
+  }
 
   gameOver = () => {
     this.GameOn = false;
@@ -119,9 +129,11 @@ class Game {
     this.colisionPlayerBola();
     this.colisionFlamaBola();
     this.colisionFramaPlayer();
+    this.scoreGame();
 
     // 3. Dibujo de elementos.
     this.drawFondo();
+    this.drawScore();
     this.bolaArr.forEach((eachBola) => {
       eachBola.drawBola();
     });
