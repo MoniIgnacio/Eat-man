@@ -6,6 +6,7 @@ class Game {
     this.bolaObj = new Bola();
     this.shotObj = new Shot();
     this.shotArr = [];
+    this.bolaArr = [];
     this.frames = 0;
     this.score = 0;
     this.GameOn = true;
@@ -15,15 +16,17 @@ class Game {
     ctx.drawImage(this.fondo, 0, 0, canvas.width, canvas.height);
   };
   colisionPlayerBola = () => {
-    if (
-      this.bolaObj.y > this.playerObj.y - this.bolaObj.r &&
-      this.bolaObj.x > this.playerObj.x - this.bolaObj.r &&
-      this.bolaObj.x < this.playerObj.x + 90 && //?
-      this.bolaObj.y < this.playerObj.y + 90 // ?
-    ) {
-      console.log('colision')
-      // this.gameOver();
-    }
+    this.bolaArr.forEach((eachBola) => {
+        if (
+          eachBola.y > this.playerObj.y - eachBola.r &&
+          eachBola.x > this.playerObj.x - eachBola.r &&
+          eachBola.x < this.playerObj.x + 90 && //?
+          eachBola.y < this.playerObj.y + 90 // ?
+          ) {
+            console.log('colision')
+            // this.gameOver();
+          }
+      })
   };
   disparoFlama = () => {
     if (gameObj.shotObj.isShooting === true) { 
@@ -33,28 +36,27 @@ class Game {
     }
   };
   colisionFlamaBola = () => {
-    this.shotArr.forEach((eachShot) => {
-      // console.log(eachShot.y);
-      if (
-        this.bolaObj.y > eachShot.y &&
-        this.bolaObj.x > eachShot.x - this.bolaObj.r &&
-        this.bolaObj.x < eachShot.x + 90 && //?
-        this.bolaObj.y < eachShot.y + 90 // ?
-      ) {
-        console.log('colision')
-        this.gameOver();
-        }
-    })
-      
+      this.shotArr.forEach((eachShot) => {
+        this.bolaArr.forEach((eachBola) => {
+          if (
+            eachBola.y > eachShot.y &&
+            eachBola.x > eachShot.x - eachBola.r &&
+            eachBola.x < eachShot.x + 90 && //?
+            eachBola.y < eachShot.y + 90 // ?
+          ) {
+            console.log('colision')
+            // this.gameOver();
+            }
+        })
+      })
     };
-  //   addBola = () =>{
-  //     if (this.frames % 120 === 0){
-  //         // let randomNum = Math.floor(Math.random() * 500)
-  //         let nuevaBola = new Bola ();
-  //         this.bolaArr.push(nuevaBola);
-  //     }
-  //   }
-
+  addBola = () =>{
+    if (this.frames % 120 === 0){
+        let randomNum = Math.floor(Math.random() * 500)
+        let nuevaBola = new Bola (randomNum);
+        this.bolaArr.push(nuevaBola);
+    }
+  }
   gameOver = () => {
     this.GameOn = false;
     canvas.style.display = "none";
@@ -67,19 +69,26 @@ class Game {
 
     // 2. Acciones y movimientos.
     this.playerObj.movimientoPlayer();
-    this.colisionPlayerBola();
     this.shotArr.forEach((eachShot) => {
       eachShot.moveShot();
     })
+    this.addBola();
+    this.bolaArr.forEach((eachBola) => {
+      eachBola.moveBola();
+    })
+    this.disparoFlama();
+    this.colisionPlayerBola();
     this.colisionFlamaBola();
-
+    
+    
     // 3. Dibujo de elementos.
     this.drawFondo();
-    this.bolaObj.drawBola();
     this.playerObj.drawPlayer();
-    this.disparoFlama();
+    this.bolaArr.forEach((eachBola) => {
+      eachBola.drawBola();
+    })
     this.shotArr.forEach((eachShot) => {
-        eachShot.drawShot();
+      eachShot.drawShot();
     })
 
 

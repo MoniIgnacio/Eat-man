@@ -1,9 +1,10 @@
 class Bola {
-  constructor() {
-    this.x = Math.floor(Math.random() * 900);
-    this.y = Math.floor(Math.random() * 500);
+  constructor(yParam) {
+    this.x = canvas.width;
+    this.y = yParam;
     this.r = 30;
     this.arc = 20;
+    this.speed = 2;
     // this.randomX = Math.floor(Math.random()*900)
     // this.randomY = Math.floor(Math.random()*500)
   }
@@ -18,5 +19,8 @@ class Bola {
     ctx.fill();
     ctx.stroke();
   };
+  moveBola = () => {
+    this.x -= this.speed;
+  }
   
 }
