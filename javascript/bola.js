@@ -8,6 +8,7 @@ class Bola {
     // this.randomX = Math.floor(Math.random()*900)
     // this.randomY = Math.floor(Math.random()*500)
   }
+
   drawBola = () => {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r, 0, 1.5 * Math.PI);
@@ -19,8 +20,8 @@ class Bola {
     ctx.fill();
     ctx.stroke();
   };
+
   moveBola = () => {
     this.x -= this.speed;
-  }
-  
+  };
 }

@@ -23,6 +23,7 @@ const startGame = () => {
   // Iniciar el juego
   gameObj.gameLoop();
 };
+
 const playAgain = () => {
   // Ocultar el inicio
   playAgainScreen.style.display = "none";
@@ -37,22 +38,27 @@ window.addEventListener("keydown", (event) => {
   if (event.code === "ArrowRight" && gameObj.playerObj.x < canvas.width - 80) {
     gameObj.playerObj.x = gameObj.playerObj.x + gameObj.playerObj.speed;
     // console.log('moviendo derecha')
-  }else if (event.code === "ArrowLeft" && gameObj.playerObj.x > 20) {
+  } else if (event.code === "ArrowLeft" && gameObj.playerObj.x > 20) {
     gameObj.playerObj.x = gameObj.playerObj.x - gameObj.playerObj.speed;
     // console.log('moviendo izquierda')
-  }else if (event.code === "ArrowUp" && gameObj.playerObj.y > 20) {
+  } else if (event.code === "ArrowUp" && gameObj.playerObj.y > 20) {
     gameObj.playerObj.y = gameObj.playerObj.y - gameObj.playerObj.speed;
     // console.log('moviendo up')
-  }else if (event.code === "ArrowDown" && gameObj.playerObj.y < canvas.height - 70) {
+  } else if (
+    event.code === "ArrowDown" &&
+    gameObj.playerObj.y < canvas.height - 70
+  ) {
     gameObj.playerObj.y = gameObj.playerObj.y + gameObj.playerObj.speed;
     // console.log('moviendo down')
   }
 });
+
 window.addEventListener("keydown", (event) => {
   if (event.code === "Space") {
     gameObj.shotObj.isShooting = true;
   }
 });
+
 window.addEventListener("keyup", (event) => {
   if (event.code === "Space") {
     gameObj.shotObj.isShooting = false;

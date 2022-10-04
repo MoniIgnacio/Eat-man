@@ -15,6 +15,7 @@ class Player {
   drawPlayer = () => {
     ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
   };
+
   movimientoPlayer = () => {
     // agregar los eventos que estan en main
   };
