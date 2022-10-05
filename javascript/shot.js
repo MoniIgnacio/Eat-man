@@ -3,9 +3,10 @@ class Shot {
     this.img = new Image();
     if (owner === "player") {
       this.img.src = "./images/explosionPlayer.png";
-    } else {
+    } else if (owner === 'bola'){
       this.img.src = "./images/explosionBola.png";
-    }
+    } else 
+      this.img.src = './images/flame-explosion.png';
 
     this.x = xParam;
     this.y = yParam - 20;

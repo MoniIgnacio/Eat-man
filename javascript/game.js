@@ -26,7 +26,7 @@ class Game {
         eachBola.y < this.playerObj.y + 90
       ){
         this.bolaArr.splice(indexBola, 1);
-        this.score -= 200;
+        this.score -= 500;
       }
     });
   };
@@ -40,7 +40,7 @@ class Game {
           eachShot.y > this.playerObj.y - this.playerObj.h
         ){
           this.shotArrBola.splice(indexShot, 1);
-          this.score -= 50;
+          this.score -= 300;
         }
       });
   };
@@ -52,6 +52,11 @@ class Game {
       }
     });
     if (this.shotArrPlayer.length <= 10 && gameObj.shotObj.isShooting === true) {
+      let nuevoShot = new Shot(gameObj.playerObj.x, gameObj.playerObj.y,"player");
+        this.shotArrPlayer.push(nuevoShot);
+        nuevoShot.drawShot();
+    };
+    if (this.bolaArr.length >= 8 && gameObj.shotObj.isShooting === true){
       let nuevoShot = new Shot(gameObj.playerObj.x, gameObj.playerObj.y, "player");
         this.shotArrPlayer.push(nuevoShot);
         nuevoShot.drawShot();
