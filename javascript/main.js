@@ -5,10 +5,9 @@ const startBtn = document.querySelector("#start-btn");
 const playAgainBtn = document.querySelector("#play-again-btn");
 const startScreen = document.querySelector("#start-screen");
 const playAgainScreen = document.querySelector("#play-again-screen");
-const scoreDOM = document.querySelector("#score span")
- 
+const scoreDOM = document.querySelector("#score span");
 
- let gameObj;
+let gameObj;
 
 // FUNCIONES GENERALES
 const startGame = () => {

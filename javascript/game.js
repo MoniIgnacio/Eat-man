@@ -30,6 +30,7 @@ class Game {
       }
     });
   };
+
   colisionFramaPlayer = () => {
       this.shotArrBola.forEach((eachShot, indexShot) => {
         if (
@@ -96,8 +97,19 @@ class Game {
       let nuevaBola = new Bola(randomNum, 6, 20);
       this.bolaArr.push(nuevaBola);
     }
-    if (this.score >= 3000) {
-      let nuevaBola = new Bola(randomNum, 4, 30);
+    // bola gigante
+    if (this.score >= 2000 && this.frames === 3000) {
+      let nuevaBola = new Bola(canvas.height*0.5, 4, 300);
+      this.bolaArr.push(nuevaBola);
+    }
+    // peloton por solo 100 frames
+    if (this.score >= 3500 && this.frames > 3500 && this.frames < 3600) {
+        let nuevaBola = new Bola(randomNum, 4, 30);
+        this.bolaArr.push(nuevaBola);
+    }
+    // mini bolas
+    if (this.score >= 4500 && this.frames % 500 === 0) {
+      let nuevaBola = new Bola(randomNum, 8, 15);
       this.bolaArr.push(nuevaBola);
     }
   };
@@ -111,6 +123,7 @@ class Game {
       }
     });
   };
+
   scoreGame = () => {
     if (this.score < 0 ){
       this.gameOver();
@@ -125,7 +138,7 @@ class Game {
     ctx.textAlign = 'center'
   }
 
-  gameOver = () => {
+   gameOver = () => {
     this.GameOn = false;
     canvas.style.display = "none";
     playAgainScreen.style.display = "flex";
