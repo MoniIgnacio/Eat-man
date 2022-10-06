@@ -14,41 +14,31 @@
       <!-- START SCREEN -->
       <div class="container" id="start-screen">
         <div class="title-game">
-          <!-- video de fondo para titulo 
-                <video autoplay muted preload loop 
-                src=""></video> -->
           <h1>EAT-MAN</h1>
         </div>
-        <img id="players-start" src="./images/players.webp" alt="start-img" />
-        <article id="container-button-arrows">
-          <img src="./images/left-arrow.png" alt="" />
-          <article id="container-arrow-bot-top">
-            <img src="./images/up-arrow.png" width="50px" alt="" />
-            <img src="./images/down-arrow.png" width="50px" alt="" />
-          </article>
-          <img src="./images/right-arrow.png" alt="" />
-          <!-- <form>
-            <label for="name">Jugador:</label>
-            <input type="text" id="name" placeholder="Ingrese su nombre">
-            <br>
-            <input type="checkbox" name="allowed" id="allow-to-play">
-            <label for="allow-to-play">+5 years</label>
-            <br>
-            <input type="submit" id="start-btn" value="Play!"></input>
-          </form> -->
+        <div class="container-img-players">
+          <img id="players-start" src="./images/players.webp" alt="start-img" />
+        </div>
+        <div class="container-button">
           <button id="start-btn">Play!</button>
-        </article>
-       <div class="fotter-bottom">
-        <div class="text-small">
-          "© Registred. Inc •"
         </div>
-        <div class="social-list">
-          <a class="social-twitter">img social</a>
-          <a class="social-facebook">img social</a>
-          <a class="social-instagram">img social</a>
+        <div class="container-footer">
+          <p id="game-mode">Modo de juego:</p>
+          <article id="container-button-arrows">
+            <img src="./images/arrows-keys.png" alt="img-arrows" /> 
+          </article>
+          <article class="container-key-space">
+            <button id="key-space">SPACE</button>
+          </article>
+          <div class="fotter-bottom">
+            <div class="text-small">
+              "© Registred. Inc •"
+              <a class="social-twitter"><img src="./images/icon-facebook.png" alt="icon-facebook"></a>
+              <a class="social-facebook"><img src="./images/icon-instagram.png" alt="icon-instagram"></a>
+              <a class="social-instagram"><img src="./images/icon-twitter.png" alt="icon-twitter"></a>
+            </div>
+           </div>
         </div>
-       </div>
-        <!--seleccion de dificultad      <button id="select-btn"></button> -->
       </div>
 
       <!-- GAME SCREEN -->
@@ -56,16 +46,23 @@
 
       <!-- PLAY AGAIN SCREEN -->
       <div class="container" id="play-again-screen">
-        <div>
-          <!-- video de fondo para titulo 
-                <video autoplay muted preload loop 
-                src=""></video> -->
+        <div class="title-game">
           <h1>EAT-MAN</h1>
         </div>
         <div id="score">
           <p>Score:<span>0</span></p>
         <button id="play-again-btn">Play again!</button>
         </div>
+        <div class="fotter-bottom">
+          <div class="text-small">
+            "© Registred. Inc •"
+          </div>
+          <div class="social-list">
+            <a class="social-twitter">img social</a>
+            <a class="social-facebook">img social</a>
+            <a class="social-instagram">img social</a>
+          </div>
+         </div>
       </div>
     </section>
     <script src="./javascript/main.js"></script>
