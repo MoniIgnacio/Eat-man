@@ -13,13 +13,13 @@
     <section class="container">
       <!-- START SCREEN -->
       <div class="container" id="start-screen">
-        <div>
+        <div class="title-game">
           <!-- video de fondo para titulo 
                 <video autoplay muted preload loop 
                 src=""></video> -->
           <h1>EAT-MAN</h1>
         </div>
-        <img src="./images/players.webp" alt="start-img" />
+        <img id="players-start" src="./images/players.webp" alt="start-img" />
         <article id="container-button-arrows">
           <img src="./images/left-arrow.png" alt="" />
           <article id="container-arrow-bot-top">
@@ -27,11 +27,27 @@
             <img src="./images/down-arrow.png" width="50px" alt="" />
           </article>
           <img src="./images/right-arrow.png" alt="" />
+          <!-- <form>
+            <label for="name">Jugador:</label>
+            <input type="text" id="name" placeholder="Ingrese su nombre">
+            <br>
+            <input type="checkbox" name="allowed" id="allow-to-play">
+            <label for="allow-to-play">+5 years</label>
+            <br>
+            <input type="submit" id="start-btn" value="Play!"></input>
+          </form> -->
           <button id="start-btn">Play!</button>
         </article>
-        <footer>
-          <ul></ul>
-        </footer>
+       <div class="fotter-bottom">
+        <div class="text-small">
+          "© Registred. Inc •"
+        </div>
+        <div class="social-list">
+          <a class="social-twitter">img social</a>
+          <a class="social-facebook">img social</a>
+          <a class="social-instagram">img social</a>
+        </div>
+       </div>
         <!--seleccion de dificultad      <button id="select-btn"></button> -->
       </div>
 

@@ -26,7 +26,7 @@ class Game {
         eachBola.y < this.playerObj.y + 90
       ){
         this.bolaArr.splice(indexBola, 1);
-        this.score -= 500;
+        this.score -= 1000;
       }
     });
   };
@@ -40,7 +40,7 @@ class Game {
           eachShot.y > this.playerObj.y - this.playerObj.h
         ){
           this.shotArrBola.splice(indexShot, 1);
-          this.score -= 300;
+          this.score -= 400;
         }
       });
   };
@@ -51,10 +51,10 @@ class Game {
         this.shotArrPlayer.splice(indexShot,1)
       }
     });
-    if (this.shotArrPlayer.length <= 10 && gameObj.shotObj.isShooting === true) {
-      let nuevoShot = new Shot(gameObj.playerObj.x, gameObj.playerObj.y,"player");
-        this.shotArrPlayer.push(nuevoShot);
-        nuevoShot.drawShot();
+    if (this.frames % 5 === 0 && this.shotArrPlayer.length <= 10 && gameObj.shotObj.isShooting === true) {
+        let nuevoShot = new Shot(gameObj.playerObj.x, gameObj.playerObj.y,"player");
+          this.shotArrPlayer.push(nuevoShot);
+          nuevoShot.drawShot();
     };
     if (this.bolaArr.length >= 8 && gameObj.shotObj.isShooting === true){
       let nuevoShot = new Shot(gameObj.playerObj.x, gameObj.playerObj.y, "player");
@@ -108,9 +108,13 @@ class Game {
       this.bolaArr.push(nuevaBola);
     }
     // peloton por solo 100 frames
-    if (this.score >= 3500 && this.frames > 3500 && this.frames < 3600) {
+    if (this.score >= 3500 && this.frames > 3800 && this.frames < 3900) {
         let nuevaBola = new Bola(randomNum, 4, 30);
         this.bolaArr.push(nuevaBola);
+    }
+    if (this.score >= 4500 && this.frames > 4800) {
+      let nuevaBola = new Bola(randomNum, 4, 30);
+      this.bolaArr.push(nuevaBola);
     }
     // mini bolas
     if (this.score >= 4500 && this.frames % 500 === 0) {
@@ -155,7 +159,6 @@ class Game {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // 2. Acciones y movimientos.
-    // this.playerObj.movimientoPlayer();
     this.shotArrPlayer.forEach((eachShot) => {
       eachShot.moveShot();
     });

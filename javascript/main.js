@@ -36,38 +36,24 @@ startBtn.addEventListener("click", startGame);
 playAgainBtn.addEventListener("click", playAgain);
 window.addEventListener("keydown", (event) => {
   if (event.code === "ArrowRight" && gameObj.playerObj.x < canvas.width - 80) {
-    gameObj.playerObj.x = gameObj.playerObj.x + gameObj.playerObj.speed;
-    // console.log('moviendo derecha')
+    gameObj.playerObj.movimientoPlayerRight()    
   } else if (event.code === "ArrowLeft" && gameObj.playerObj.x > 20) {
-    gameObj.playerObj.x = gameObj.playerObj.x - gameObj.playerObj.speed;
-    // console.log('moviendo izquierda')
+    gameObj.playerObj.movimientoPlayerLeft()
   } else if (event.code === "ArrowUp" && gameObj.playerObj.y > 20) {
-    gameObj.playerObj.y = gameObj.playerObj.y - gameObj.playerObj.speed;
-    // console.log('moviendo up')
-  } else if (
-    event.code === "ArrowDown" &&
-    gameObj.playerObj.y < canvas.height - 70
-  ) {
-    gameObj.playerObj.y = gameObj.playerObj.y + gameObj.playerObj.speed;
-    // console.log('moviendo down')
+    gameObj.playerObj.movimientoPlayerUp()
+  } else if (event.code === "ArrowDown" && gameObj.playerObj.y < canvas.height - 70) {
+    gameObj.playerObj.movimientoPlayerDown()
   }
 });
 window.addEventListener("keyup", (event) => {
   if (event.code === "ArrowRight" && gameObj.playerObj.x < canvas.width - 80) {
-    gameObj.playerObj.x = gameObj.playerObj.x + gameObj.playerObj.speed;
-    // console.log('moviendo derecha')
+    gameObj.playerObj.movimientoPlayerRight()
   } else if (event.code === "ArrowLeft" && gameObj.playerObj.x > 20) {
-    gameObj.playerObj.x = gameObj.playerObj.x - gameObj.playerObj.speed;
-    // console.log('moviendo izquierda')
+    gameObj.playerObj.movimientoPlayerLeft()
   } else if (event.code === "ArrowUp" && gameObj.playerObj.y > 20) {
-    gameObj.playerObj.y = gameObj.playerObj.y - gameObj.playerObj.speed;
-    // console.log('moviendo up')
-  } else if (
-    event.code === "ArrowDown" &&
-    gameObj.playerObj.y < canvas.height - 70
-  ) {
-    gameObj.playerObj.y = gameObj.playerObj.y + gameObj.playerObj.speed;
-    // console.log('moviendo down')
+    gameObj.playerObj.movimientoPlayerUp()
+  } else if (event.code === "ArrowDown" && gameObj.playerObj.y < canvas.height - 70) {
+    gameObj.playerObj.movimientoPlayerDown()
   }
 });
 

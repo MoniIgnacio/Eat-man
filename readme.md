@@ -4,35 +4,16 @@
 
 Eat-Man es un juego donde el jugador se puede mover en x e y, a su vez disparar elementos para defenderse de sus enemigos y sobrevivir. 
 
-* El juego sube niveles: - En relacion a la cantidad de enemigos eliminados.                        
-                         - Se agregan enemigos por Frames y por eliminaciones.
+* El juego aumenta su dificultad en relacion a la cantidad de enemigos eliminados.                   
 
 ## MVP (DOM - CANVAS)
 
-Pasos a seguir 
-2./ html 
-3./ gameloop
-4./ jugador movimiento
-5./ bola
-6./ colicion de bola con jugador 
-7./ disparo jugador 
-8./ colicion de bola con disparo
-9. disparo random de bola 
-10. / colicion de disparo conjugador
-11. / colicion de pelota con jugador gameOver 
-
-
-- El juego termina cuando:
-    * Se elimina el rival.
-    * (Cuando se queda sin vida.)
-    * (Cuando se finaliza cierta cantidad de tiempo)
-
-- El jugador 1:
+- El jugador 
     * Puede recorrer todo el canvas sin salir de el.
-    * El jugador aparecera en bot izq. 
-    * Posee arma para defenderse y dispara.
-    * Se mueve con las flechas y dispara con el espacio.
-    * Cuando es atacado por Bola lo mata (disminuye vida).
+    * El jugador aparecera ubicado en la parte inferior izquierda del canvas. 
+    * Posee un arma para defenderse y dispara una cantidad limitada de municiones.
+    * El movimiento del jugador se realiza con las flechas y dispara con el espacio.
+    * Cuando es atacado por el enemigo disminuira 
 
 - Bola:
     * Aparece desde afuera del canvas (aumentan con Frames)   

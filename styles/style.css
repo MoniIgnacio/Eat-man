@@ -14,6 +14,14 @@ body{
     align-items: center;
     margin: 50px;
 }
+.title-game{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
 video{
     position: absolute;
     top: 0;
@@ -24,17 +32,17 @@ video{
 }
 h1{ 
     color: white;
-    /* background: black; */
-    text-align: center;
+    position: absolute;
     font-size: 70px;
     font-weight: 400;
     mix-blend-mode:luminosity;
-    margin: 0px;
-    /* padding-top: 0px; */
-    /* border-top: 0px; */
-    
-    
 }
+
+#players-start{
+    width: 100%; 
+    height: 70%;
+}
+
 #container-button-arrows{
     display: flex;
     justify-content: center;
@@ -55,7 +63,6 @@ h1{
 }
 #start-screen{
     background-image: url('../images/background-smoke.png');
-    /* background-repeat: no-repeat; */
     background-size: 1000px 600px;
     display: flex;
     flex-direction: column;
@@ -90,9 +97,9 @@ h1{
     padding: 20px;
     font-size: 20px;
     margin-top: 20px;
-    border-radius: 10px; 
-    height: 80px;
-    width: 300px;
+    border-radius: 10px;  
+    /* height: 80px; */
+    /* width: 300px; */
 }
 #score {
     font-size: 2.5rem;
