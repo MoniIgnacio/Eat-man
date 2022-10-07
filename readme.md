@@ -13,124 +13,127 @@ Eat-Man es un juego donde el jugador se puede mover en x e y, a su vez disparar 
     * El jugador aparecera ubicado en la parte inferior izquierda del canvas. 
     * Posee un arma para defenderse y dispara una cantidad limitada de municiones.
     * El movimiento del jugador se realiza con las flechas y dispara con el espacio.
-    * Cuando es atacado por el enemigo disminuira 
+    * Cuando es atacado por el enemigo disminuira.
 
-- Bola:
-    * Aparece desde afuera del canvas (aumentan con Frames)   
-    * Dirección random.
-    * Ataques random. (dirigidos a jugador 1 con delay de ataque que disminuye en relacion a los FPS)
-    * Cuando es atacado por jugador 1 muere (disminuye vida)
-
+- Enemigo:
+    * Ingresan al juego desde la parte derecha de la pantalla y aumentan su velocidad en relacion al score obtenido por el jugador. 
+    * Ataques hacia el jugador en relacion al score obtenido.
+    * Cuando es atacado por jugador 1 muere.
 
 
 ## Backlog
 
-- Va aumentando un score.
-- Elegir la dificultad ( disminuir los frames del ataque de Bola / limitar disparos ).
-
-
-
-
-
+- Posibilidad de elegir la dificultad en el comienzo del juego.
+- Adherir un elemento que muestre la cantidad de disparos disponibles para el jugador.
+- Realizar cambios de imagen en relacion a la posicion del jugador y del enemigo.
 
 
 ## Data Structure
 
 # main.js
 
-- buildSplashScreen () {}
-- buildGameScreen () {}
-- buildGameOverScreen () {}
+- startGame () {}
+- playAgain () {}
 
 # game.js
 
 - Game () {}
-- starLoop () {}
-- checkCollisions () {}
-- addTentacle () {}
-- clearCanvas () {}
-- updateCanvas () {}
-- drawCanvas () {}
-- GameOver () {}
+- drawFondo () {}
+- colisionPlayerBola () {}
+- colisionFramaPlayer () {}
+- colisionFlamaBola () {}
+- colisionBolaCanvas () {}
+- addBola () {}
+- disparoFlamaBola () {}
+- scoreGame () {}
+- gameOver () {}
+- gameLoop () {}
 
-# ship.js 
 
-- Ship () {
-    this.x;
-    this.y;
-    this.direction;
-    this.size
+
+# player.js 
+
+- Player () {
+    this.img; 
+    this.img; .src
+    this.x; 
+    this.y;  
+    this.w; 
+    this.h; 
+    this.speed;  
 }
-- draw () {}
-- move () {}
-- shoot () {}
-- checkScreenCollision () {}
+- drawPlayer () {}
+- movimientoPlayerRight () {}
+- movimientoPlayerLeft () {}
+- movimientoPlayerUp () {}
+- movimientoPlayerDown () {}
 
-# tentacle.js 
+# bola.js 
 
-- Tentacle () {
-    this.x;
-    this.y;
-    this.direction;
-    this.size
+- Bola () {
+    this.x; 
+    this.y; 
+    this.r;
+    this.speed;
+    this.ang; 
 }
-- draw () {}
-- move () {}
-- checkCollisionBotton () {}
+- drawBola () {}
+- moveBola () {}
 
-# cannonball.js 
+# shot.js 
 
-- Cannonball () {
-    this.x;
-    this.y;
-    this.direction;
-    this.size
+- Shot (xParam, yParam, owner) {
+    this.img; 
+    this.img; .src
+    this.x;  
+    this.y; 
+    this.w; 
+    this.h; 
+    this.speed; 
+    this.isShooting;
 }
-- draw () {}
-- move () {}
-- checkCollisionTop () {}
+- drawShot () {}
+- moveShot () {}
+- moveShotBola () {}
 
 ## States y States Transitions
 Definition of the different states and their transition (transition functions)
 
-- splashScreen
-- gameScreen
-- gameOverScreen
+- startScreen
+- playAgainScreen
+
 
 ## Task
 
 - main - buildDom
-- main - buildSplashScreen
+- main - buildStartScreen
 - main - addEventListener
-- main - buildGameScreen
-- main - buildGameOverScreen
-- game - startLoop
+- main - buildStartScreen
+- main - buildPlayAgainScreen
+- game - gameLoop
 - game - buildCanvas
 - game - updateCanvas
 - game - drawCanvas
-- tentacle - draw
-- tentacle - move
-- game - addTentacle
-- ship - draw
-- ship - move
-- ship - shoot
-- game - addShip
-- cannonball - draw
-- cannonball - move
-- game - checkCollision
+- player - drawPlayer
+- player - movePlayer
+- game - addShot
+- bola - draw
+- bola - move
+- bola - shoot
+- game - addSpeed
+- game - addBola
+- game - checkShotCollisions
+- game - checkPlayer-EnemyCollisions
 - game - GameOver
 - game - addEventListener
 
 ## Links
 
-### Trello
-[Link url](https://trello.com/b/CWviY2zv/kraken-brigade-project)
 
 ### Git
 URls for the project repo and deploy
-[Link Repo](https://github.com/jorgeberrizbeitia/kraken-brigade)
-[Link Deploy](https://jorgeberrizbeitia.github.io/kraken-brigade/)
-
+[Link Repo](https://github.com/MoniIgnacio/Eat-man)
+[Link Deploy](https://moniignacio.github.io/Eat-man/)
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](https://docs.google.com/presentation/d/138o01hAz-0gXepN78RsDgse12HiiuN7Fz_N_hJnI9_g/edit?usp=sharing)
+[Link Slides.com](https://docs.google.com/...)
