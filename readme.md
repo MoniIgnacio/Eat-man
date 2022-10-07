@@ -136,4 +136,4 @@ URls for the project repo and deploy
 [Link Deploy](https://moniignacio.github.io/Eat-man/)
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](https://docs.google.com/...)
+[Link Slides.com](https://docs.google.com/presentation/d/1Esx7GXvqt9AC_bc_-_b5EvijLVzaF6iwN1KVnSofAA8/edit?usp=sharing)
